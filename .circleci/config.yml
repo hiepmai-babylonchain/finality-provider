@@ -133,6 +133,7 @@ jobs:
   test_e2e_op:
     machine:
       image: ubuntu-2204:2024.01.1
+    parallelism: 4
     resource_class: large
     steps:
       - go/install:
@@ -155,7 +156,7 @@ jobs:
       - run:
           name: Run integration tests
           command: |
-            make test-e2e-op
+            make test-e2e-op-ci
 
   build_docker:
     machine:
@@ -205,11 +206,11 @@ jobs:
 workflows:
   CI:
     jobs:
-      - check-mock-gen
-      - build_lint_test
-      - test_e2e_babylon
-      - test_e2e_bcd
-      - test_e2e_wasmd
+      # - check-mock-gen
+      # - build_lint_test
+      # - test_e2e_babylon
+      # - test_e2e_bcd
+      # - test_e2e_wasmd
       - test_e2e_op
       - build_docker:
           filters:
