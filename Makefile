@@ -109,8 +109,7 @@ test-e2e-wasmd: clean-e2e install-babylond install-wasmd
 test-e2e-op: clean-e2e install-babylond
 	@go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E_OP) -count=1 --tags=e2e_op
 test-e2e-op-ci: install-babylond
-	circleci tests run --command "xargs gotestsum --junitfile junit.xml --format testname -- -mod=readonly -timeout=25m \
-	-v $(PACKAGES_E2E_OP) -count=1 --tags=e2e_op" --split-by=timings --timings-type=name
+	circleci tests run --command "xargs gotestsum --junitfile junit.xml --format testname -- -mod=readonly -timeout=25m -v $(PACKAGES_E2E_OP) -count=1 --tags=e2e_op" --split-by=timings --timings-type=name
 
 DEVNET_REPO_URL := https://github.com/babylonchain/op-e2e-devnet
 TARGET_DIR := ./itest/opstackl2/devnet-data
