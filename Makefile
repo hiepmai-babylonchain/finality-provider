@@ -61,6 +61,9 @@ test:
 test-e2e:
 	cd $(TOOLS_DIR); go install -trimpath $(BABYLON_PKG)
 	export PATH=$(PATH):/home/runner/go/bin
+	ls -lah /home/runner/go/bin
+	ls -lah /usr/local/go/bin
+	ls -lah /usr/bin/ | grep babylon
 	go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E) -count=1 --tags=e2e
 
 ###############################################################################
