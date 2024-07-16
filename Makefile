@@ -59,10 +59,9 @@ test:
 	go test ./...
 
 test-e2e:
+	go env GOPATH
+	go env GOBIN
 	cd $(TOOLS_DIR); go install -trimpath $(BABYLON_PKG)
-	echo $(GOPATH)
-	echo $(GOBIN)
-	ls -lah $(GO_BIN)
 	go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E) -count=1 --tags=e2e
 
 ###############################################################################
