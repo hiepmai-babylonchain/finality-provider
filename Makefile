@@ -3,7 +3,7 @@ TOOLS_DIR := tools
 
 BABYLON_PKG := github.com/babylonchain/babylon/cmd/babylond
 
-GO_BIN := $(GO_PATH)/bin
+GO_BIN := $(GOPATH)/bin
 BTCD_BIN := $(GO_BIN)/btcd
 
 DOCKER := $(shell which docker)
