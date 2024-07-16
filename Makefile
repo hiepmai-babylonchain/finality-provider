@@ -64,6 +64,7 @@ test-e2e:
 	ls -lah /home/runner/go/bin
 	ls -lah /usr/local/go/bin
 	ls -lah /usr/bin/ | grep babylon
+	ls -lah $(GO_BIN)
 	go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E) -count=1 --tags=e2e
 
 ###############################################################################
