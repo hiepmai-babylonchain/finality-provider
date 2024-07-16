@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint_test:
-    uses: babylonchain/.github/.github/workflows/reusable_go_lint_test.yml@hiep/add-reusable-workflows
+    uses: hiepmai-babylonchain/.github/.github/workflows/reusable_go_lint_test.yml@hiep/add-reusable-workflows
     with:
      run-unit-tests: true
      run-integration-tests: true
