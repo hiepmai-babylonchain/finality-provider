@@ -60,7 +60,8 @@ test:
 
 test-e2e:
 	cd $(TOOLS_DIR); go install -trimpath $(BABYLON_PKG)
-	export PATH=$(PATH):$(GO_BIN)
+	echo $(GOPATH)
+	echo $(GO_BIN)
 	ls -lah $(GO_BIN)
 	go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E) -count=1 --tags=e2e
 
