@@ -3,7 +3,7 @@ TOOLS_DIR := tools
 
 BABYLON_PKG := github.com/babylonchain/babylon/cmd/babylond
 
-GO_BIN := ${GOPATH}/bin
+GO_BIN := $(shell go env GOPATH)/bin
 BTCD_BIN := $(GO_BIN)/btcd
 
 DOCKER := $(shell which docker)
@@ -59,7 +59,9 @@ test:
 	go test ./...
 
 test-e2e:
-	cd $(TOOLS_DIR); go install -trimpath $(BABYLON_PKG)
+	export GOBIN=$(GO_BIN)
+	echo $(GO_BIN)
+	cd $(TOOLS_DIR); GOBIN=/home/runner/go/bin go install -trimpath $(BABYLON_PKG)
 	go test -mod=readonly -timeout=25m -v $(PACKAGES_E2E) -count=1 --tags=e2e
 
 ###############################################################################
